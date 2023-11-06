@@ -4,4 +4,4 @@ API
 .. autoclass:: src.package.PyClass
     :members:
     :undoc-members:
-    :special-members:
+    :special-members: __init__

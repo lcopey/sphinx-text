@@ -4,5 +4,5 @@ class PyClass:
         pass
 
     def member(self):
-        """Does nothing interesting but we never know what could happen"""
+        """Does nothing interesting but we never know what could happen."""
         pass
