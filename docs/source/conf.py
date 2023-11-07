@@ -6,6 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import sys
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from sphinx.application import Sphinx
 
 sys.path.append('../')
 
@@ -27,3 +31,17 @@ exclude_patterns = []
 
 html_theme = 'alabaster'
 html_static_path = ['_static']
+
+from sphinx.util.logging import getLogger
+
+
+def processor(app, what, name, obj, options, lines):
+    logging = getLogger(__name__)
+    logging.info(f'Processing {what} {name}', )
+    logging.info(f'{options}')
+    return False
+
+
+def setup(app: Sphinx):
+    # app.add_event('test')
+    app.connect('autodoc-process-docstring', processor)
